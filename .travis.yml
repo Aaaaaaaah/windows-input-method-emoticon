@@ -6,6 +6,6 @@ after_success:
     - git config --global user.email "travis@travis-ci.org"
     - git config --global user.name "Travis CI"
     - git add -u
-    - git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+    - git commit --message Travis-CI-build
     - git remote add origin-pages https://${GH_TOKEN}@github.com/MVSE-outreach/resources.git
     - git push --quiet --set-upstream master
