@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import time
+
 with open("README.txt","r") as f:
     src = f.read().replace("\r","")
 
@@ -8,7 +10,12 @@ lines = filter(lambda x:x[0]!="*",filter(lambda x:len(x)!=0,src.split("\n")))
 useless = " \r\n\t"
 find_useless = lambda n:min(filter(lambda x:x!=-1,map(n.find,useless)))
 
-output = "*********************************\r\n* windows-input-method-emoticon *\r\n*********************************\r\n\r\n"
+t = time.ctime()
+l = len(t)
+a = b = (31-l)/2
+if a+b < 31-l:
+    b+=1
+output = "*********************************\r\n* Windows-Input-Method-Emoticon *\r\n*%s%s%s*\r\n*********************************\r\n\r\n"%(" "*a,time.ctime()," "*b)
 
 dicts = {}
 for i in lines:
