@@ -5,7 +5,7 @@ var data = {}
 var pool = []
 req.open("GET","README.txt");
 req.onload = function(){
-    var pre = req.responseText.replace(new RegExp("\r",'g'), "").split("\n").filter(function(n){return n.indexOf("*")==-1}).filter(function(n){return n.length});
+    var pre = req.responseText.replace(new RegExp("\r",'g'), "").split("\n").filter(function(n){return n[0]!="*"}).filter(function(n){return n.length});
     pre.map(function(n){
             var s = n.indexOf(" ");
             data[n.substr(0,s)] = n.substr(s+1);
