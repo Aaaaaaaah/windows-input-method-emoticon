@@ -13,4 +13,4 @@ after_success:
     - git remote add origin https://${GH_TOKEN}@github.com/Aaaaaaaah/windows-input-method-emoticon.git 
     - git branch -v
     - git remote -v
-    - git push --quiet --force --set-upstream master
+    - git push --quiet --force --set-upstream
