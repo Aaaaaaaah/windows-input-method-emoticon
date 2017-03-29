@@ -5,9 +5,12 @@ script: python arrange.py
 after_success:
     - git config --global user.email "travis@travis-ci.org"
     - git config --global user.name "Travis CI"
+    - git branch -v
+    - git remote -v
     - cat README.txt
     - git add README.txt
     - git commit --message Travis-CI-build
     - echo ${GH_TOKEN}
+    - git remote remove origin
     - git remote add origin https://${GH_TOKEN}@github.com/Aaaaaaaah/windows-input-method-emoticon.git 
     - git push --quiet --force --set-upstream master
