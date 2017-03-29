@@ -3,6 +3,8 @@ python:
     - "2.7"
 script: python arrange.py
 after_success:
+    - export TO_PUSH=0
+    - grep travis <(git log | head -n 6) || export TO_PUSH=1
     - git config --global user.email "travis@travis-ci.org"
     - git config --global user.name "Travis CI"
     - git add README.txt
@@ -13,4 +15,4 @@ after_success:
     - git remote add origin https://${GH_TOKEN}@github.com/Aaaaaaaah/windows-input-method-emoticon.git 
     - git branch -v
     - git remote -v
-    - grep travis <(git log | head -n 2 | tail -n 1) ||git push --quiet --force --set-upstream
+    - if [ ${TO_PUSH} -eq "1" ]; then git push --quiet --set-upstream; fi
