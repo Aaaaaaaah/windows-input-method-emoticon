@@ -8,5 +8,5 @@ after_success:
     - git add -u
     - git commit --message Travis-CI-build
     - git checkout -b master
-    - git remote add origin-pages https://${GH_TOKEN}@github.com/MVSE-outreach/resources.git
+    - git remote add origin-pages https://${GH_TOKEN}@github.com/Aaaaaaaah/windows-input-method-emoticon.git 
     - git push --quiet --set-upstream master
