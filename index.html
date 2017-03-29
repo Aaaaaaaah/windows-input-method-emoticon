@@ -11,7 +11,9 @@ req.onload = function(){
 }
 req.send()
 function check(){
+    document.getElementById("content").innerHTML = data[document.getElemenyById("input").value]
 }
 </script>
 
 <input id=input onkeydown="check();" />
+<div id="content" />
