@@ -1,0 +1,14 @@
+<script>
+var req = new XMLHttpRequest();
+var data = {}
+req.open("GET","README.txt");
+req.onload = function(){
+    var pre = req.responseText.replace(new RegExp("\r",'g'), "").split("\n").filter(function(n){return n.indexOf("*")==-1}).filter(function(n){return n.length})
+    data = pre
+}
+req.send()
+function check(){
+}
+</script>
+
+<input id=input onkeydown="check();" />
