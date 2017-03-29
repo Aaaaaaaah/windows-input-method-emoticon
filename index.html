@@ -1,19 +1,31 @@
 <script>
 var req = new XMLHttpRequest();
 var data = {}
+var pool = []
 req.open("GET","README.txt");
 req.onload = function(){
     var pre = req.responseText.replace(new RegExp("\r",'g'), "").split("\n").filter(function(n){return n.indexOf("*")==-1}).filter(function(n){return n.length});
     pre.map(function(n){
             var s = n.indexOf(" ");
-            data[n.substr(0,s)] = n.substr(s+1)
+            data[n.substr(0,s)] = n.substr(s+1);
+            pool.push(n.substr(0,s));
             })
 }
-req.send()
+req.send();
 function check(){
-    document.getElementById("content").innerHTML = data[document.getElemenyById("input").value]
+    var chinese = document.getElementById("input").value;
+    var content;
+    if(chinese.length==0)
+        content = "";
+    else if(pool.indexOf(chinese)!=-1)
+        content = data[chinese];
+    else{
+        var temp = pool.filter(function(n){return n.indexOf(chinese)!=-1}).map(function(n){return n+"&nbsp;&nbsp;&nbsp;"+data[n]});
+        content = temp.join("<br/>");
+    }
+    document.getElementById("content").innerHTML = content;
 }
 </script>
 
-<input id=input onkeydown="check();" />
+<input id=input onkeyup="check();" />
 <div id="content" />
