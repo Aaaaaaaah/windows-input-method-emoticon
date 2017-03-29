@@ -3,8 +3,11 @@ var req = new XMLHttpRequest();
 var data = {}
 req.open("GET","README.txt");
 req.onload = function(){
-    var pre = req.responseText.replace(new RegExp("\r",'g'), "").split("\n").filter(function(n){return n.indexOf("*")==-1}).filter(function(n){return n.length})
-    data = pre
+    var pre = req.responseText.replace(new RegExp("\r",'g'), "").split("\n").filter(function(n){return n.indexOf("*")==-1}).filter(function(n){return n.length});
+    pre.map(function(n){
+            var s = n.indexOf(" ");
+            data[n.substr(0,s)] = n.substr(s+1)
+            })
 }
 req.send()
 function check(){
