@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 with open("README.txt","r") as f:
     src = f.read().replace("\r","")
 
