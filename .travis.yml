@@ -7,5 +7,6 @@ after_success:
     - git config --global user.name "Travis CI"
     - git add -u
     - git commit --message Travis-CI-build
+    - git checkout -b master
     - git remote add origin-pages https://${GH_TOKEN}@github.com/MVSE-outreach/resources.git
     - git push --quiet --set-upstream master
