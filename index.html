@@ -19,7 +19,7 @@ function check(){
     if(chinese.length==0)
         content = "";
     else if(pool.indexOf(chinese)!=-1)
-        content = data[chinese];
+        content = chinese+"&nbsp;&nbsp;&nbsp;"+data[chinese];
     else{
         var temp = pool.filter(function(n){return n.indexOf(chinese)!=-1}).map(function(n){return n+"&nbsp;&nbsp;&nbsp;"+data[n]});
         content = temp.join("<br/>");
