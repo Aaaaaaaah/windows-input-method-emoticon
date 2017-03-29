@@ -25,7 +25,11 @@ for i in lines:
         dicts[chinese] = emoticon
     except:
         pass
-for i,j in dicts.items():
+
+lists = dicts.items()
+lists.sort()
+
+for i,j in lists:
     output += "%s %s\r\n"%(i,j)
 
 with open("README.txt","w") as f:
