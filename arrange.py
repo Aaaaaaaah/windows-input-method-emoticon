@@ -6,7 +6,7 @@ lines = filter(lambda x:x[0]!="*",filter(lambda x:len(x)!=0,src.split("\n")))
 useless = " \r\n\t"
 find_useless = lambda n:min(filter(lambda x:x!=-1,map(n.find,useless)))
 
-output = "*********************************\r\n* windows-input-method-emoticon *\r\n*********************************\r\n"
+output = "*********************************\r\n* windows-input-method-emoticon *\r\n*********************************\r\n\r\n"
 
 dicts = {}
 for i in lines:
@@ -30,7 +30,7 @@ lists = dicts.items()
 lists.sort()
 
 for i,j in lists:
-    output += "%s %s\r\n"%(i,j)
+    output += "%s %s\r\n\r\n"%(i,j)
 
 with open("README.txt","w") as f:
     f.write(output)
