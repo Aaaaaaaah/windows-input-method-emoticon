@@ -1,4 +1,6 @@
-# windows-input-method-emoticon
+*********************************
+* windows-input-method-emoticon *
+*********************************
 不是吧 (＃°Д°)
 不满 （︶︿︶）
 不要 (◐﹏◐)
